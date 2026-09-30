@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>m²n³ | Bela-Bela 2026</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f4ee;
+            color: #2d2926;
+            min-height: 100vh;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            background:
+                linear-gradient(
+                    rgba(248, 244, 238, 0.88),
+                    rgba(248, 244, 238, 0.95)
+                ),
+                url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
+                center/cover;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+            color: #716960;
+        }
+
+        .location {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .dates {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            color: #716960;
+        }
+
+        .countdown-card {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .countdown-title {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            color: #8b8177;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .time-box {
+            background: #f2ece4;
+            padding: 18px 10px;
+            border-radius: 15px;
+        }
+
+        .number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #81766d;
+            margin-top: 5px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-card .emoji {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .info-card h3 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8b8177;
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .payment {
+            background: #2d2926;
+            color: white;
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .payment h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .amount {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .payment p {
+            color: #d6d0ca;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #5a544f;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: #ffffff;
+            border-radius: 20px;
+            transition: width 0.5s ease;
+        }
+
+        .deadline {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #d6d0ca;
+        }
+
+        .message {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .message h2 {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            font-size: 0.8rem;
+            color: #8b8177;
+            padding-bottom: 20px;
+        }
+
+        @media (max-width: 650px) {
+
+            .logo {
+                font-size: 3rem;
+            }
+
+            .location {
+                font-size: 2.5rem;
+            }
+
+            .countdown {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .amount {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="logo">
+            m²n³
+        </div>
+
+        <div class="subtitle">
+            The Cousins Escape
+        </div>
+
+        <div class="location">
+            Bela-Bela
+        </div>
+
+        <div class="dates">
+            20 December — 23 December 2026
+        </div>
+
+
+        <!-- COUNTDOWN -->
+
+        <div class="countdown-card">
+
+            <div class="countdown-title">
+                Trip Countdown
+            </div>
+
+            <div class="countdown">
+
+                <div class="time-box">
+                    <div class="number" id="days">00</div>
+                    <div class="label">Days</div>
+                </div>
+
+                <div class="time-box">
+                    <div class="number" id="hours">00</div>
+                    <div class="label">Hours</div>
+                </div>
+
+                <div class="time-box">
+                    <div class="number" id="minutes">00</div>
+                    <div class="label">Minutes</div>
+                </div>
+
+                <div class="time-box">
+                    <div class="number" id="seconds">00</div>
+                    <div class="label">Seconds</div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRIP INFORMATION -->
+
+        <div class="info-grid">
+
+            <div class="info-card">
+
+                <div class="emoji">
+                    👯
+                </div>
+
+                <h3>
+                    Cousins
+                </h3>
+
+                <p>
+                    5 people
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="emoji">
+                    🌙
+                </div>
+
+                <h3>
+                    Duration
+                </h3>
+
+                <p>
+                    3 nights
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="emoji">
+                    📍
+                </div>
+
+                <h3>
+                    Destination
+                </h3>
+
+                <p>
+                    Bela-Bela
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PAYMENT -->
+
+        <div class="payment">
+
+            <h2>
+                Your Trip Contribution
+            </h2>
+
+            <div class="amount">
+                R3,000
+            </div>
+
+            <p>
+                per person
+            </p>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress"
+                    id="progress">
+                </div>
+
+            </div>
+
+            <div class="deadline">
+                Payment deadline: 30 November 2026
+            </div>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="message">
+
+            <h2>
+                🌴 The Plan
+            </h2>
+
+            <p>
+                Three nights. Five cousins. Bela-Bela.
+                Good food, good memories and absolutely
+                no unnecessary stress.
+            </p>
+
+            <br>
+
+            <p>
+                More trip details coming soon...
+            </p>
+
+        </div>
+
+
+        <footer>
+            m²n³ • Bela-Bela 2026
+        </footer>
+
+    </div>
+
+</section>
+
+
+<script>
+
+    // ==========================
+    // TRIP COUNTDOWN
+    // ==========================
+
+    const tripDate =
+        new Date("December 20, 2026 08:00:00").getTime();
+
+
+    function updateCountdown() {
+
+        const now = new Date().getTime();
+
+        const difference = tripDate - now;
+
+
+        if (difference <= 0) {
+
+            document.getElementById("days").innerText = "00";
+            document.getElementById("hours").innerText = "00";
+            document.getElementById("minutes").innerText = "00";
+            document.getElementById("seconds").innerText = "00";
+
+            return;
+        }
+
+
+        const days =
+            Math.floor(
+                difference /
+                (1000 * 60 * 60 * 24)
+            );
+
+
+        const hours =
+            Math.floor(
+                (difference %
+                    (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            );
+
+
+        const minutes =
+            Math.floor(
+                (difference %
+                    (1000 * 60 * 60)) /
+                (1000 * 60)
+            );
+
+
+        const seconds =
+            Math.floor(
+                (difference %
+                    (1000 * 60)) /
+                1000
+            );
+
+
+        document.getElementById("days").innerText =
+            String(days).padStart(2, "0");
+
+        document.getElementById("hours").innerText =
+            String(hours).padStart(2, "0");
+
+        document.getElementById("minutes").innerText =
+            String(minutes).padStart(2, "0");
+
+        document.getElementById("seconds").innerText =
+            String(seconds).padStart(2, "0");
+
+    }
+
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+
+
+</script>
+
+</body>
+</html>
